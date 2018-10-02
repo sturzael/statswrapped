@@ -43,10 +43,8 @@
                 profile_picture: response.images[0].url,
               }
             })
+            getUserTop();
           });
-
-
-
         }
       });
     } else {
@@ -55,4 +53,18 @@
       $('#loggedin').hide();
     }
   }
+
+function getUserTop(){
+  $.ajax({
+    url: 'https://api.spotify.com/v1/me/top/tracks',
+    headers: {
+      'Authorization': 'Bearer ' + access_token
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+}
+
+
 })();
