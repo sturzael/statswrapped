@@ -60,9 +60,15 @@ function getUserTop(){
     headers: {
       'Authorization': 'Bearer ' + access_token
     },
-    data:{"time_range":"long_term"},
+    data:{"time_range":"long_term", "limit":"50"},
     success: function(response) {
-      console.log(response);
+      songs = response.items;
+      for (var i = 0; i < songs.length; i++) {
+        let name = songs[i].name;
+        let artist = songs[i].album.artists[0].name;
+        $('.listofsongs').append(`<li>${name} - ${artist}</li>`)
+      }
+      console.log(songs);
     }
   });
 }
