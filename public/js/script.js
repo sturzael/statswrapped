@@ -60,6 +60,7 @@ function getUserTop(){
     headers: {
       'Authorization': 'Bearer ' + access_token
     },
+    data:{"time_range":"long_term"},
     success: function(response) {
       console.log(response);
     }

@@ -1,7 +1,74 @@
+@font-face {
+  font-family: Cbook;
+  src: url("../fonts/Gotham-Book.otf");
+}
 
-.text-overflow {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 500px;
+@font-face {
+  font-family: Cbold;
+  src: url("../fonts/GothamBold.ttf");
+}
+
+@font-face {
+  font-family: Cblack;
+  src: url("../fonts/black.ttf");
+}
+
+#login {
+  background: linear-gradient(135deg, #000000ab 0, #082a2a 100%), url(loginHero.jpg);
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#login p {
+  font-family: Cbook;
+  color: white;
+  margin-top: -14px;
+}
+
+#login h1 {
+  font-family: Cblack;
+  color: white;
+  font-size: 60px;
+}
+
+#getStarted{
+  border: solid 3px #ffffff;
+    border-radius: 1.875rem;
+    height: 3.75rem;
+    padding: 19px 2.4375rem;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 65px;
+    cursor: pointer;
+transition: 1s ease;
+}
+#getStarted a{
+  font-family: Cbold;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    font-size: 19px;
+    text-transform: uppercase;
+    top: 50%;
+    transition: 1s ease;
+    transform: translateY(-50%);
+}
+#getStarted:hover {
+    border: solid 3px #565656;
+}
+#getStarted:hover a{
+    color: #565656;
 }
