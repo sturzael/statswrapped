@@ -14,6 +14,8 @@ const client_id = process.env.env_client_id; // Your client id
 const client_secret = process.env.env_client_secret; // Your secret
 const redirect_uri = process.env.env_redirect_uri; // Your redirect uri
 
+var global_access_token,global_refresh_token;
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -83,6 +85,8 @@ app.get('/callback', function(req, res) {
 
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
+        global_access_token = body.access_token,
+            global_refresh_token = body.refresh_token;
 
         let access_token = body.access_token,
             refresh_token = body.refresh_token;
@@ -114,29 +118,4 @@ app.get('/callback', function(req, res) {
   }
 });
 
-app.get('/refresh_token', function(req, res) {
-
-  // requesting access token from refresh token
-  const refresh_token = req.query.refresh_token;
-  let authOptions = {
-    url: 'https://accounts.spotify.com/api/token',
-    headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
-    form: {
-      grant_type: 'refresh_token',
-      refresh_token: refresh_token
-    },
-    json: true
-  };
-
-  request.post(authOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      let access_token = body.access_token;
-      res.send({
-        'access_token': access_token
-      });
-    }
-  });
-});
-
-console.log('Listening on 8888');
 app.listen(8888);
