@@ -3,13 +3,16 @@
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
 
+require('dotenv').config();
 const express = require('express'); // Express web server framework
 const request = require('request'); // "Request" library
 const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
 
-
+const client_id = process.env.env_client_id; // Your client id
+const client_secret = process.env.env_client_secret; // Your secret
+const redirect_uri = process.env.env_redirect_uri; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
