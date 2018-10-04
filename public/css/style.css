@@ -19,11 +19,12 @@
   width: 100%;
 }
 #login_left{
+  float: left;
   width: 50%;
   display: inline-block;
   height: 100%;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.9;
   position: relative;
 z-index: 12;
 }
@@ -57,6 +58,11 @@ z-index: 12;
   -moz-box-shadow: 10px 10px 300px 19px rgba(0,0,0,0.9);
   box-shadow: 10px 10px 300px 19px rgba(0,0,0,0.9);
 
+}
+.spotifyLogo img{
+  display: inline-block;
+padding: 23px;
+width: 150px;
 }
 /*.wrapper {
   text-align: center;
