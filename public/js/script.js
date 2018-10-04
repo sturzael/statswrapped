@@ -60,7 +60,7 @@ function getUserTop(){
     headers: {
       'Authorization': 'Bearer ' + access_token
     },
-    data:{"time_range":"long_term", "limit":"50"},
+    data:{"time_range":"short_term", "limit":"50"},
     success: function(response) {
       songs = response.items;
       for (var i = 0; i < songs.length; i++) {

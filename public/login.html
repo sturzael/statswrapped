@@ -1,14 +1,75 @@
 <div id="login">
-  <div class="wrapper">
-    <div class="spotifyLogo">
-      <img src="css/spotifyLogo.png" alt="spotifyLogo" width="300">
-    </div>
-    <h1>What kind of listener are you?</h1>
-    <p>Think you know what kind of listener you are? Log-in & see your own streaming in action.</p>
-    <div id="getStarted" onClick="window.open('/login','_self');">
-      <a href="/login" class="btn btn-primary">Get Started</a>
-    </div>
+  <div id="login_left">
 
+  </div>
+  <div id="login_images">
+    <div id="login_img1" class="login_images">
+      <img src="https://i.scdn.co/image/ce8dac12e0929fa63ef3fd11dd0a89809f078afd" alt="russ">
+    </div>
+    <div id="login_img2" class="login_images">
+      <img src="https://i.scdn.co/image/ce8dac12e0929fa63ef3fd11dd0a89809f078afd" alt="russ">
+    </div>
   </div>
 
 </div>
+<style type="text/css">
+.container{
+  height: 100%;
+  width: 100%;
+}
+body{
+background: linear-gradient(145deg, #941b97, #372e33);
+    margin: 20px;
+    overflow-y: hidden;
+}
+</style>
+<script type="text/javascript">
+  const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    const w = Math.max(document.documentElement.clientWidth, window.innerHeight || 0);
+  $('body').css("height", function(){return h - 40;});
+    $('body').css("width", function(){return w - 40;});
+
+    let lFollowX = 0,
+    lFollowY = 0,
+    lFollowX2 = 0,
+    lFollowY2 = 0,
+    x = 0,
+    y = 0,
+    x2 = 0,
+    y2 = 0,
+    friction = 1 / 30;
+
+function moveBackground() {
+  x += (lFollowX - x) * friction;
+  y += (lFollowY - y) * friction;
+  x2 += (lFollowX2 - x2) * friction;
+  y2 += (lFollowY2 - y2) * friction;
+  translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+
+  translateLate = 'translate(' + x2 + 'px, ' + y2 + 'px) scale(1.1)';
+
+  $('#login_img1').css({
+    '-webit-transform': translate,
+    '-moz-transform': translate,
+    'transform': translate
+  });
+  $('#login_img2').css({
+    '-webit-transform': translateLate,
+    '-moz-transform': translateLate,
+    'transform': translateLate
+  });
+  window.requestAnimationFrame(moveBackground);
+}
+
+$(window).on('mousemove click', function(e) {
+
+  var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
+  var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
+  lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+  lFollowY = (10 * lMouseY) / 100;
+  lFollowX2 = (20 * lMouseX) / 30; // 100 : 12 = lMouxeX : lFollow
+  lFollowY2 = (10 * lMouseY) / 30;
+});
+
+moveBackground();
+</script>
