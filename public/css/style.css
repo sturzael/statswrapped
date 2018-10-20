@@ -12,7 +12,24 @@
   font-family: Cblack;
   src: url("../fonts/black.ttf");
 }
+#github{
 
+}
+#cright{
+  position: absolute;
+  right: 0;
+}
+.details_text{
+  position: absolute;
+bottom: 0%;
+display: flex;
+margin-left: 20px;
+
+width: 93%;
+}
+.mydet{
+
+}
 #login{
 
   height: 100%;
@@ -23,7 +40,7 @@
   width: 50%;
   display: inline-block;
   height: 100%;
-  background-color: black;
+  background-color: #250933;
   opacity: 0.9;
   position: relative;
 z-index: 12;
